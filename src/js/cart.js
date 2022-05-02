@@ -7,9 +7,9 @@ function getCartContents() {
 
   const cartItems = [getLocalStorage("so-cart")];
   if (cartItems[0] != null) {
-    document.querySelector(".product-list").innerHTML = cartItems.map((item) =>
-      renderCartItem(item)
-    );
+    document.querySelector(".product-list").innerHTML = cartItems
+      .map((item) => renderCartItem(item))
+      .join("");
   }
 }
 
