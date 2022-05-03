@@ -13,6 +13,29 @@ function getCartContents() {
   }
 }
 
+function displayTotalInCart() {
+  // get cartItems and place them in an array
+  const cartItems = [getLocalStorage("so-cart")];
+
+  // grab the element that will display the total cart
+  let element = document.querySelector(".hide");
+
+  if (cartItems[0] != null) {
+    // store the length of the array
+    const totalCount = cartItems.length;
+
+    // display the element
+    element.style.display = "block";
+
+    // add the totalCount to innerHTML
+    element.innerHTML = totalCount;
+    
+  } else {
+    // hide the element
+    element.style.display = "none";
+  }
+}
+
 function renderCartItem(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
@@ -33,3 +56,4 @@ function renderCartItem(item) {
 }
 
 getCartContents();
+displayTotalInCart();
