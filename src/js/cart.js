@@ -20,16 +20,19 @@ function displayTotalInCart() {
   // grab the element that will display the total cart
   let element = document.querySelector(".hide");
 
+  // have a variable holding the total cost
+  let totalCost = 0;
+
   if (cartItems[0] != null) {
-    // store the length of the array
-    const totalCount = cartItems.length;
+    cartItems.forEach((item) => {
+      totalCost += item;
+    });
 
     // display the element
     element.style.display = "block";
 
     // add the totalCount to innerHTML
-    element.innerHTML = totalCount;
-    
+    element.innerHTML = `$${totalCostt}`;
   } else {
     // hide the element
     element.style.display = "none";
