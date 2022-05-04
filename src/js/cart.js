@@ -33,9 +33,6 @@ function displayTotalInCart() {
 
     // add the totalCount to innerHTML
     element.innerHTML = `Total: $${totalCost}`;
-  } else {
-    // hide the element
-    element.style.display = "none";
   }
 }
 
