@@ -25,14 +25,14 @@ function displayTotalInCart() {
 
   if (cartItems[0] != null) {
     cartItems.forEach((item) => {
-      totalCost += item;
+      totalCost += item.FinalPrice;
     });
 
     // display the element
     element.style.display = "block";
 
     // add the totalCount to innerHTML
-    element.innerHTML = `$${totalCostt}`;
+    element.innerHTML = `Total: $${totalCost}`;
   } else {
     // hide the element
     element.style.display = "none";
