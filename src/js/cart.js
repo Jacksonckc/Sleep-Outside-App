@@ -28,9 +28,6 @@ function displayTotalInCart() {
       totalCost += item.FinalPrice;
     });
 
-    // display the element
-    element.style.display = "block";
-
     // add the totalCount to innerHTML
     element.innerHTML = `Total: $${totalCost}`;
   }
