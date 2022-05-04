@@ -13,6 +13,26 @@ function getCartContents() {
   }
 }
 
+function displayTotalInCart() {
+  // get cartItems and place them in an array
+  const cartItems = [getLocalStorage("so-cart")];
+
+  // grab the element that will display the total cart
+  let element = document.querySelector(".hide");
+
+  // have a variable holding the total cost
+  let totalCost = 0;
+
+  if (cartItems[0] != null) {
+    cartItems.forEach((item) => {
+      totalCost += item.FinalPrice;
+    });
+
+    // add the totalCount to innerHTML
+    element.innerHTML = `Total: $${totalCost}`;
+  }
+}
+
 function renderCartItem(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
@@ -33,3 +53,4 @@ function renderCartItem(item) {
 }
 
 getCartContents();
+displayTotalInCart();
