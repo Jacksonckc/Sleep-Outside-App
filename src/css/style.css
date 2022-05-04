@@ -89,7 +89,16 @@ button {
   display: block;
   border: 0;
   font-size: var(--large-font);
+  cursor: pointer;
 }
+button:hover {
+  background-color: var(--dark-grey);
+}
+
+button:active {
+  background-color: var(--secondary-color);
+}
+
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
