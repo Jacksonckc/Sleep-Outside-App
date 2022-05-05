@@ -4,10 +4,33 @@ function getLocalStorage(key) {
 
 function getCartContents() {
   let markup = "";
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => renderCartItem(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
+
+  const cartItems = [getLocalStorage("so-cart")];
+  if (cartItems[0] != null) {
+    document.querySelector(".product-list").innerHTML = cartItems
+      .map((item) => renderCartItem(item))
+      .join("");
+  }
+}
+
+function displayTotalInCart() {
+  // get cartItems and place them in an array
+  const cartItems = [getLocalStorage("so-cart")];
+
+  // grab the element that will display the total cart
+  let element = document.querySelector(".hide");
+
+  // have a variable holding the total cost
+  let totalCost = 0;
+
+  if (cartItems[0] != null) {
+    cartItems.forEach((item) => {
+      totalCost += item.FinalPrice;
+    });
+
+    // add the totalCount to innerHTML
+    element.innerHTML = `Total: $${totalCost}`;
+  }
 }
 
 function renderCartItem(item) {
@@ -30,3 +53,4 @@ function renderCartItem(item) {
 }
 
 getCartContents();
+displayTotalInCart();
