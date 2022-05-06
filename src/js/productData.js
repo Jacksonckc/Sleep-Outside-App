@@ -6,24 +6,24 @@ function convertToJson(res) {
   }
 }
 
-export default class ProductData  {
+export default class ProductData {
   constructor(category) {
     this.path = `../json/${category}.json`;
-    this.products = []; 
+    this.products = [];
   }
-  
+
   getData() {
-      return fetch(this.path)
+    return fetch(this.path)
       .then(convertToJson)
       .then((data) => {
-        data
+        return data;
       });
   }
-  
+
   // get tents data
-  
+
   async findProductById(id) {
-    const products = await this.getData()
+    const products = await this.getData();
     return products.find((item) => item.Id === id);
   }
 }
