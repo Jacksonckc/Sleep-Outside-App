@@ -17,7 +17,7 @@ const generateHTML = () => {
 
 const doeverything = async () => {
   const hi = await fetchData("../json/backpacks.json");
-  await console.log(hi);
+  // await console.log(hi);
 };
 
 doeverything();
