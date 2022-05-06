@@ -1,3 +1,11 @@
+import ProductData from './productData.js';
+import { getParams } from './utils.js';
+const dataSource = new ProductData('tents');
+
+const productId = getParams('product');
+
+console.log(dataSource.findProductById(productId));
+
 let products = [];
 function convertToJson(res) {
   if (res.ok) {
@@ -14,7 +22,7 @@ function setLocalStorage(key, data) {
 // get tents data
 function getProductsData() {
   fetch("../json/tents.json")
-    .then(convertToJson)
+    .then((res) => convertToJson(res))
     .then((data) => {
       products = data;
     });
@@ -32,4 +40,4 @@ function addToCart(e) {
 
 getProductsData();
 // add listener to Add to Cart button
-document.getElementById("addToCart").addEventListener("click", addToCart);
+// document.getElementById("addToCart").addEventListener("click", addToCart);
