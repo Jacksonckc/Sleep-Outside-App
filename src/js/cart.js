@@ -1,4 +1,7 @@
-import addSuperscript from "./cartIcon";
+import addSuperscript from "./cartIconSuperscript";
+
+const superscript = new addSuperscript();
+superscript.addSuperscript();
 
 function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
@@ -56,4 +59,3 @@ function renderCartItem(item) {
 
 getCartContents();
 displayTotalInCart();
-addSuperscript();

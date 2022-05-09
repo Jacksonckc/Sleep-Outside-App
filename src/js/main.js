@@ -1,6 +1,7 @@
-import addSuperscript from "./cartIcon";
+import addSuperscript from "./cartIconSuperscript";
 
-addSuperscript();
+const superscript = new addSuperscript();
+superscript.addSuperscript();
 
 const fetchData = (path) => {
   const result = fetch(path)
