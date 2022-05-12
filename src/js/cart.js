@@ -1,26 +1,21 @@
 import addSuperscript from "./cartIconSuperscript";
+import { getLocalStorage } from "./utils";
 
 const superscript = new addSuperscript();
 superscript.addSuperscript();
 
-function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
-
 function getCartContents() {
   let markup = "";
 
-  const cartItems = [getLocalStorage("so-cart")];
-  if (cartItems[0] != null) {
-    document.querySelector(".product-list").innerHTML = cartItems
-      .map((item) => renderCartItem(item))
-      .join("");
-  }
+  const cartItems = getLocalStorage();
+  document.querySelector(".product-list").innerHTML = cartItems
+    .map((item) => renderCartItem(item))
+    .join("");
 }
 
 function displayTotalInCart() {
   // get cartItems and place them in an array
-  const cartItems = [getLocalStorage("so-cart")];
+  const cartItems = getLocalStorage();
 
   // grab the element that will display the total cart
   let element = document.querySelector(".hide");
@@ -28,14 +23,12 @@ function displayTotalInCart() {
   // have a variable holding the total cost
   let totalCost = 0;
 
-  if (cartItems[0] != null) {
-    cartItems.forEach((item) => {
-      totalCost += item.FinalPrice;
-    });
+  cartItems.forEach((item) => {
+    totalCost += item.FinalPrice;
+  });
 
-    // add the totalCount to innerHTML
-    element.innerHTML = `Total: $${totalCost}`;
-  }
+  // add the totalCount to innerHTML
+  element.innerHTML = `Total: $${totalCost}`;
 }
 
 function renderCartItem(item) {
