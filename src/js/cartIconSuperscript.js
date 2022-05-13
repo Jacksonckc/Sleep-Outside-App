@@ -1,15 +1,10 @@
+import { getLocalStorage } from "./utils";
+
 export default class cartIconSuperscript {
-  // constructor() {}
-  getLocalStorage(key) {
-    const cartItems = [JSON.parse(localStorage.getItem(key))];
-    if (cartItems[0] == null) {
-      cartItems.length -= 1;
-    }
-    return cartItems.length;
-  }
+  constructor() {}
 
   addSuperscript() {
-    const number = this.getLocalStorage("so-cart");
+    const number = getLocalStorage().length;
     document.styleSheets[0].addRule(".cart::before", `content: '${number}';`);
   }
 }
