@@ -23,8 +23,7 @@ export default class ProductDetail {
   }
 
   addToCart() {
-    // const product = products.find((item) => item.Id === e.target.dataset.id);
-    setLocalStorage("so-cart", this.product);
+    setLocalStorage(this.productId, this.product);
   }
 
   renderProductDetails() {
