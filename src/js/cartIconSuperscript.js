@@ -1,6 +1,6 @@
 import { getLocalStorage } from "./utils";
 
-export default class cartIconSuperscript {
+export default class CartIconSuperscript {
   constructor() {}
 
   addSuperscript() {
