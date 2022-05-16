@@ -27,7 +27,6 @@ export default class ProductList {
     return template;
   }
   renderList(list) {
-    console.log(this.listElement);
     // insert the actual details of the current product into the template
     this.listElement.innerHTML = "";
 

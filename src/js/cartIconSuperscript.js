@@ -4,9 +4,7 @@ export default class CartIconSuperscript {
   constructor() {}
 
   addSuperscript() {
-    // console.log(getLocalStorage("cart"));
     let number = getLocalStorage("cart").length;
-    // console.log(getLocalStorage("cart"));
     if (getLocalStorage("cart")[0] == null) {
       number -= 1;
     }
