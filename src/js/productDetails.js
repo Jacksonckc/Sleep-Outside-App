@@ -1,5 +1,4 @@
-import { setLocalStorage } from "./utils.js";
-import CartIconSuperscript from "./cartIconSuperscript.js";
+import { setLocalStorage, getLocalStorage } from "./utils.js";
 
 export default class ProductDetail {
   constructor(productId, dataSource) {
@@ -24,7 +23,12 @@ export default class ProductDetail {
   }
 
   addToCart() {
-    setLocalStorage("cart", this.product);
+    setLocalStorage(
+      "cart",
+      getLocalStorage("cart")
+        ? [...getLocalStorage("cart"), this.product]
+        : [this.product]
+    );
   }
 
   renderProductDetails() {

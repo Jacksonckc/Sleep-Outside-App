@@ -12,25 +12,9 @@ export function getLocalStorage(key) {
 
 // save data to local storage
 export function setLocalStorage(key, data) {
-  const oldData = getLocalStorage(key);
-  const oldDataCopy = [...oldData];
-  console.log(oldDataCopy);
-
-  localStorage.setItem(
-    key,
-
-    JSON.stringify(data)
-  );
+  localStorage.setItem(key, JSON.stringify(data));
   //
 }
-
-// function toCart(key, data) {
-//   if (getLocalStorage(key)[0] != null) {
-//     return JSON.stringify(getLocalStorage(key).push(data));
-//   } else {
-//     return JSON.stringify(data);
-//   }
-// }
 
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
