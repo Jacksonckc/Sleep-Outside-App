@@ -8,7 +8,7 @@ function getCartContents() {
   let markup = "";
 
   const cartItems = getLocalStorage("cart");
-  if (cartItems[0] != null) {
+  if (cartItems) {
     document.querySelector(".product-list").innerHTML = cartItems
       .map((item) => renderCartItem(item))
       .join("");
@@ -25,7 +25,7 @@ function displayTotalInCart() {
   // have a variable holding the total cost
   let totalCost = 0;
 
-  if (cartItems[0] != null) {
+  if (cartItems) {
     cartItems.forEach((item) => {
       totalCost += item.FinalPrice;
     });
