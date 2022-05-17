@@ -5,6 +5,7 @@ export default class ProductDetail {
     this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
+    // this.cartItems = getLocalStorage("cart");
   }
 
   async init() {
@@ -23,12 +24,29 @@ export default class ProductDetail {
   }
 
   addToCart() {
-    setLocalStorage(
-      "cart",
-      getLocalStorage("cart")
-        ? [...getLocalStorage("cart"), this.product]
-        : [this.product]
-    );
+    if (getLocalStorage("cart")) {
+      // If cart already has item/items
+      const product = getLocalStorage("cart").find(
+        (item) => item.Id == this.product.Id
+      );
+      if (product) {
+        // Modify the item that already exist in the cart
+        let newLocalStorage = [...getLocalStorage("cart")];
+        newLocalStorage = newLocalStorage.filter(
+          (item) => item.Id != product.Id
+        );
+        product.Quantity += 1;
+        newLocalStorage = [...newLocalStorage, product];
+        setLocalStorage("cart", [...newLocalStorage]);
+      } else {
+        // Adding a new item to the cart
+        this.product = { ...this.product, ...{ Quantity: 1 } };
+        setLocalStorage("cart", [...getLocalStorage("cart"), this.product]);
+      }
+    } else {
+      // Adding the first item to the cart
+      setLocalStorage("cart", [{ ...this.product, ...{ Quantity: 1 } }]);
+    }
   }
 
   renderProductDetails() {
