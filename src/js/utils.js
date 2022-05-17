@@ -6,21 +6,15 @@ export function qs(selector, parent = document) {
 // export const qs = (selector, parent = document) => parent.querySelector(selector);
 
 // retrieve data from localstorage
-export function getLocalStorage() {
-  var items = [],
-    keys = Object.keys(localStorage),
-    i = keys.length;
-
-  while (i--) {
-    items.push(JSON.parse(localStorage.getItem(keys[i])));
-  }
-
-  return items;
+export function getLocalStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
 }
+
 // save data to local storage
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
+
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
@@ -35,4 +29,12 @@ export function getParams(param) {
   const urlParams = new URLSearchParams(queryString);
   const product = urlParams.get(param);
   return product;
+}
+
+export function renderListWithTemplate(template, parent, list, callback) {
+  list.forEach((item) => {
+    const clone = template.content.cloneNode(true);
+    const templateWithData = callback(clone, item);
+    parent.appendChild(templateWithData);
+  });
 }

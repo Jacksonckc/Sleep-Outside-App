@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./utils.js";
+import { setLocalStorage, getLocalStorage } from "./utils.js";
 
 export default class ProductDetail {
   constructor(productId, dataSource) {
@@ -10,9 +10,9 @@ export default class ProductDetail {
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
     document.querySelector("main").innerHTML = this.renderProductDetails();
-    document
-      .getElementById("addToCart")
-      .addEventListener("click", () => location.reload(), true);
+    // document
+    //   .getElementById("addToCart")
+    //   .addEventListener("click", () => location.reload(), true);
     // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     // once we have the product details we can render out the HTML
     // once the HTML is rendered we can add a listener to Add to Cart button
@@ -23,7 +23,12 @@ export default class ProductDetail {
   }
 
   addToCart() {
-    setLocalStorage(this.productId, this.product);
+    setLocalStorage(
+      "cart",
+      getLocalStorage("cart")
+        ? [...getLocalStorage("cart"), this.product]
+        : [this.product]
+    );
   }
 
   renderProductDetails() {

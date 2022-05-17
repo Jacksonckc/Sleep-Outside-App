@@ -1,10 +1,13 @@
 import { getLocalStorage } from "./utils";
 
-export default class cartIconSuperscript {
+export default class CartIconSuperscript {
   constructor() {}
 
   addSuperscript() {
-    const number = getLocalStorage().length;
+    let number = 0;
+    if (getLocalStorage("cart")) {
+      number = getLocalStorage("cart").length;
+    }
     document.styleSheets[0].addRule(".cart::before", `content: '${number}';`);
   }
 }
