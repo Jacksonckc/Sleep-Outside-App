@@ -238,6 +238,10 @@ button:active {
   }
 }
 
+#alerts {
+  text-align: center;
+}
+
 footer {
   font-size: var(--small-font);
   padding: 1em;
