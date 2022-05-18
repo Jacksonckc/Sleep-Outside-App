@@ -30,18 +30,18 @@ for (var i = 0; i < data.length; i++) {
     // alertText.setAttribute("id",data[i].alertId)
 }
 
-const alertOneColors = document.querySelectorAll('.alert1')
-alertOneColors.forEach(alertOneColor => {
-    alertOneColor.style.backgroundColor = data[0].background}
-)
+// const alertOneColors = document.querySelectorAll('.alert1')
+// alertOneColors.forEach(alertOneColor => {
+//     alertOneColor.style.backgroundColor = data[0].background}
+// )
 
-const alertTwoColors = document.querySelectorAll('.alert2')
-alertTwoColors.forEach(alertTwoColor => {
-    alertTwoColor.style.backgroundColor = data[1].background}
-)
+// const alertTwoColors = document.querySelectorAll('.alert2')
+// alertTwoColors.forEach(alertTwoColor => {
+//     alertTwoColor.style.backgroundColor = data[1].background}
+// )
 
-const alertThreeColors = document.querySelectorAll('.alert3')
-alertThreeColors.forEach(alertThreeColor => {
-    alertThreeColor.style.backgroundColor = data[2].background}
+// const alertThreeColors = document.querySelectorAll('.alert3')
+// alertThreeColors.forEach(alertThreeColor => {
+//     alertThreeColor.style.backgroundColor = data[2].background}
 )
 }
