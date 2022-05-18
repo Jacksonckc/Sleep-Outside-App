@@ -1,8 +1,6 @@
 import addSuperscript from "./cartIconSuperscript";
+import { loadHeaderFooter } from "./utils.js";
 import { getLocalStorage } from "./utils";
-
-const superscript = new addSuperscript();
-superscript.addSuperscript();
 
 function getCartContents() {
   let markup = "";
@@ -56,3 +54,6 @@ function renderCartItem(item) {
 
 getCartContents();
 displayTotalInCart();
+loadHeaderFooter();
+const superscript = new addSuperscript();
+superscript.addSuperscript();
