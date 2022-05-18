@@ -5,7 +5,6 @@ export default class ProductDetail {
     this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
-    // this.cartItems = getLocalStorage("cart");
   }
 
   async init() {
