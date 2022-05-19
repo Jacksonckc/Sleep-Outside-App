@@ -4,35 +4,34 @@
         "id": "1",
         "message": "Test 1",
         "background": "Gainsboro",
-        "fontColor": "Black",
-        "alertId": "alert1"
+        "fontColor": "Black"
+
     },
     {
         "id": "2",
         "message": "Test 2",
         "background": "CornflowerBlue",
-        "fontColor": "Black",
-        "alertId": "alert2"
+        "fontColor": "Black"
+
     },
     {
         "id": "3",
         "message": "Test 3",
         "background": "DodgerBlue",
-        "fontColor": "Black",
-        "alertId": "alert3"
-    },
-    {
-        "id": "3",
-        "message": "Come in for an extra 10% off!",
-        "background": "DodgerBlue",
-        "fontColor": "Black",
-        "alertId": "alert1"
+        "fontColor": "Black"
+
     },
     {
         "id": "4",
         "message": "Come in for an extra 10% off!",
         "background": "DodgerBlue",
-        "fontColor": "Black",
-        "alertId": "alert3"
+        "fontColor": "Black"
+
+    },
+    {
+        "id": "5",
+        "message": "Come in for an extra 50% off!",
+        "background": "Black",
+        "fontColor": "White"
     }
-    ]
+]
