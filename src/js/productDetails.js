@@ -46,7 +46,38 @@ export default class ProductDetail {
       // Adding the first item to the cart
       setLocalStorage("cart", [{ ...this.product, ...{ Quantity: 1 } }]);
     }
+    this.animateCart()
   }
+
+  // Cart animation
+  animateCart(){
+    var cartIcon = document.getElementById("cartIcon");
+    cartIcon.animate([
+    {
+      transform: 'rotate(0deg) scale(1)' 
+    },
+    {
+      transform: 'rotate(-10deg) scale(1.3)'
+    },
+    {
+      transform: 'rotate(10deg) scale(1.3)'
+    },
+    {
+      transform: 'rotate(-10deg) scale(1.3)'
+    },
+    {
+      transform: 'rotate(10deg) scale(1.3)'
+    },
+    {
+      transform: 'rotate(0deg) scale(1)'
+    }
+    ],
+    {
+      duration: 750,
+      iterations: 1,
+    });
+  }
+
 
   renderProductDetails() {
     return `<section class="product-detail"> <h3>${this.product.Brand.Name}</h3>
