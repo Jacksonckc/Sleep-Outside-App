@@ -1,27 +1,6 @@
 
 [
     {
-        "id": "1",
-        "message": "Test 1",
-        "background": "Gainsboro",
-        "fontColor": "Black"
-
-    },
-    {
-        "id": "2",
-        "message": "Test 2",
-        "background": "CornflowerBlue",
-        "fontColor": "Black"
-
-    },
-    {
-        "id": "3",
-        "message": "Test 3",
-        "background": "DodgerBlue",
-        "fontColor": "Black"
-
-    },
-    {
         "id": "4",
         "message": "Come in for an extra 10% off!",
         "background": "DodgerBlue",
