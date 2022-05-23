@@ -16,7 +16,6 @@ for (var i = 0; i < data.length; i++) {
     alertText.innerHTML = data[i].message;
 
     mainContainer.appendChild(alertText);
-    // alertText.setAttribute("class", data[i].alertId)
 
     alertText.style.backgroundColor = data[i].background
     alertText.style.color = data[i].fontColor
