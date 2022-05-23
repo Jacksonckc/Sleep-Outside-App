@@ -17,7 +17,7 @@ export default class ProductList {
 
   prepareTemplate(template, product) {
     template.querySelector("a").href += product.Id;
-    template.querySelector("img").href += product.Image;
+    template.querySelector("img").src += product.Image;
     template.querySelector("img").alt += product.Name;
     template.querySelector(".card__brand").textContent += product.Brand.Name;
     template.querySelector(".card__name").textContent +=
@@ -28,6 +28,8 @@ export default class ProductList {
   }
   renderList(list) {
     // insert the actual details of the current product into the template
+    list = list.filter((item) => item.Id != "989CG" && item.Id != "880RT");
+
     this.listElement.innerHTML = "";
 
     const template = document.getElementById("product-card-template");
