@@ -1,6 +1,6 @@
 import addSuperscript from "./cartIconSuperscript";
 import { loadHeaderFooter } from "./utils.js";
-import { getLocalStorage } from "./utils";
+import { getLocalStorage, setLocalStorage } from "./utils";
 
 function getCartContents() {
   let markup = "";
@@ -25,7 +25,8 @@ function displayTotalInCart() {
 
   if (cartItems) {
     cartItems.forEach((item) => {
-      totalCost += item.FinalPrice;
+      console.log(item);
+      totalCost += (item.FinalPrice * item.Quantity);
     });
   }
 
