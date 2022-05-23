@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils";
+import { getLocalStorage } from "./utils.js";
 
 export default class CartIconSuperscript {
   constructor() {}

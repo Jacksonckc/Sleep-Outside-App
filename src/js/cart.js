@@ -47,13 +47,32 @@ function renderCartItem(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">${item.Quantity}</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
+  <button class="delete-item" id="${item.Id}">X</button>
 </li>`;
   // console.log(newItem);
   return newItem;
 }
 
+function deleteButton(callback) {
+  document.querySelectorAll(".delete-item").forEach((element) => {
+    element.addEventListener("click", (e) => {
+      callback(e.target.id);
+      location.reload();
+    });
+  });
+}
+
+function removeItemFromCart(itemId) {
+  const cartItems = getLocalStorage("cart");
+  const filteredItems = cartItems.filter((item) => itemId !== item.Id);
+  setLocalStorage("cart", filteredItems);
+}
+
 getCartContents();
 displayTotalInCart();
+deleteButton(removeItemFromCart);
+
 loadHeaderFooter();
 const superscript = new addSuperscript();
 superscript.addSuperscript();
+
