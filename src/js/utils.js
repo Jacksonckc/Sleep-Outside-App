@@ -40,6 +40,8 @@ export function getParams(param) {
 }
 
 export function renderListWithTemplate(template, parent, list, callback) {
+  list.sort((a, b) => a.ListPrice - b.ListPrice);
+
   list.forEach((item) => {
     const clone = template.content.cloneNode(true);
     const templateWithData = callback(clone, item);
