@@ -25,8 +25,7 @@ function displayTotalInCart() {
 
   if (cartItems) {
     cartItems.forEach((item) => {
-      console.log(item);
-      totalCost += (item.FinalPrice * item.Quantity);
+      totalCost += item.FinalPrice * item.Quantity;
     });
   }
 
@@ -76,4 +75,3 @@ deleteButton(removeItemFromCart);
 loadHeaderFooter();
 const superscript = new addSuperscript();
 superscript.addSuperscript();
-
