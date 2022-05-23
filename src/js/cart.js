@@ -31,7 +31,7 @@ function displayTotalInCart() {
   }
 
   // add the totalCount to innerHTML
-  element.innerHTML = `Total: $${totalCost}`;
+  element.innerHTML = `Total: $${totalCost.toFixed(2)}`;
 }
 
 function renderCartItem(item) {
