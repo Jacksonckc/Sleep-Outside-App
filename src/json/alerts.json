@@ -1,16 +1,9 @@
 
 [
     {
-        "id": "4",
-        "message": "Come in for an extra 10% off!",
-        "background": "DodgerBlue",
-        "fontColor": "Black"
-
-    },
-    {
         "id": "5",
         "message": "Come in for an extra 50% off!",
-        "background": "Black",
+        "background": "blue",
         "fontColor": "White"
     }
 ]

@@ -1,14 +1,8 @@
-const jsonData = fetch("json/alerts.json")
-
-.then(function (response) {
+const jsonData = fetch("json/alerts.json").then(function (response) {
     return response.json();
-})
-
-.then(function (data) {
+}).then(function (data) {
     createAlerts(data);
-})
-
-.catch(function (err) {
+}).catch(function (err) {
     console.log("error: " + err);
 });
 
@@ -22,7 +16,7 @@ for (var i = 0; i < data.length; i++) {
     alertText.innerHTML = data[i].message;
 
     mainContainer.appendChild(alertText);
-    alertText.setAttribute("class", data[i].alertId)
+    // alertText.setAttribute("class", data[i].alertId)
 
     alertText.style.backgroundColor = data[i].background
     alertText.style.color = data[i].fontColor
