@@ -1,8 +1,6 @@
-import addSuperscript from "./cartIconSuperscript.js";
-import { getLocalStorage, setLocalStorage } from "./utils.js";
-
-const superscript = new addSuperscript();
-superscript.addSuperscript();
+import addSuperscript from "./cartIconSuperscript";
+import { loadHeaderFooter } from "./utils.js";
+import { getLocalStorage } from "./utils";
 
 function getCartContents() {
   let markup = "";
@@ -73,3 +71,8 @@ function removeItemFromCart(itemId) {
 getCartContents();
 displayTotalInCart();
 deleteButton(removeItemFromCart);
+
+loadHeaderFooter();
+const superscript = new addSuperscript();
+superscript.addSuperscript();
+
