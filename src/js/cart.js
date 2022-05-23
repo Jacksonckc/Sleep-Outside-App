@@ -40,7 +40,7 @@ function renderCartItem(item) {
       src="${item.Image}"
       alt="${item.Name}"
     />
-  </a>
+  </a> 
   <a href="#">
     <h2 class="card__name">${item.Name}</h2>
   </a>
