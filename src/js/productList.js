@@ -28,15 +28,13 @@ export default class ProductList {
   }
   renderList(list) {
     // insert the actual details of the current product into the template
-    list = list.filter((item) => item.Id != "989CG" && item.Id != "880RT");
-
     this.listElement.innerHTML = "";
 
     const template = document.getElementById("product-card-template");
     renderListWithTemplate(
       template,
       this.listElement,
-      list,
+      list.filter((item) => item.Id != "989CG" && item.Id != "880RT"),
       this.prepareTemplate
     );
   }
