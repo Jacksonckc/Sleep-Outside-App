@@ -29,6 +29,11 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #ffffff;
+
 }
 .logo {
   line-height: 60px;
