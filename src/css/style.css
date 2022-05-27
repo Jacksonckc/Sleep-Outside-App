@@ -22,9 +22,39 @@ body {
   font-size: var(--font-base);
   color: var(--dark-grey);
 }
+
 img {
   max-width: 100%;
 }
+
+.imageUrlParent > li > a > .imageUrls {
+  max-width: 100px;
+  max-height: auto;
+  margin: auto;
+}
+
+.imageUrlParent > li > a {
+  text-decoration: none;
+  color: #303030;
+}
+
+
+.imageUrlParent {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  text-align: center;
+  padding: 0px 0px 0px 0px;
+  /* margin: 0px; */
+}
+
+.imageUrlParent > li {
+  list-style: none;
+}
+
+.imageUrlParent:visited {
+  text-decoration: none;
+}
+
 header {
   display: flex;
   justify-content: space-between;
