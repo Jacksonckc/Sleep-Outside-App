@@ -38,7 +38,6 @@ img {
   color: #303030;
 }
 
-
 .imageUrlParent {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
@@ -279,4 +278,29 @@ button:active {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+}
+
+/* #modal {
+  background-color: #a4b8c4;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  opacity: 0.3;
+  display: none;
+} */
+
+#modal section {
+  background-color: white;
+  border: 2px solid #f0a868;
+  border-radius: 20px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -45%);
+}
+
+#modal section img {
+  width: 50%;
+  margin: auto;
+  display: block;
 }

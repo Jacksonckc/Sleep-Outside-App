@@ -1,15 +1,18 @@
 import { setLocalStorage, getLocalStorage } from "./utils.js";
 
 export default class ProductDetail {
-  constructor(productId, dataSource) {
+  constructor(productId, dataSource, destination = "main") {
     this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
+    this.destination = destination;
   }
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
-    document.querySelector("main").innerHTML = this.renderProductDetails();
+    document.querySelector(
+      this.destination
+    ).innerHTML = this.renderProductDetails();
     // document
     //   .getElementById("addToCart")
     //   .addEventListener("click", () => location.reload(), true);
@@ -46,45 +49,51 @@ export default class ProductDetail {
       // Adding the first item to the cart
       setLocalStorage("cart", [{ ...this.product, ...{ Quantity: 1 } }]);
     }
-    this.animateCart()
+    this.animateCart();
   }
 
   // Cart animation
-  animateCart(){
+  animateCart() {
     var cartIcon = document.getElementById("cartIcon");
-    cartIcon.animate([
-    {
-      transform: 'rotate(0deg) scale(1)' 
-    },
-    {
-      transform: 'rotate(-10deg) scale(1.3)'
-    },
-    {
-      transform: 'rotate(10deg) scale(1.3)'
-    },
-    {
-      transform: 'rotate(-10deg) scale(1.3)'
-    },
-    {
-      transform: 'rotate(10deg) scale(1.3)'
-    },
-    {
-      transform: 'rotate(0deg) scale(1)'
-    }
-    ],
-    {
-      duration: 750,
-      iterations: 1,
-    });
+    cartIcon.animate(
+      [
+        {
+          transform: "rotate(0deg) scale(1)",
+        },
+        {
+          transform: "rotate(-10deg) scale(1.3)",
+        },
+        {
+          transform: "rotate(10deg) scale(1.3)",
+        },
+        {
+          transform: "rotate(-10deg) scale(1.3)",
+        },
+        {
+          transform: "rotate(10deg) scale(1.3)",
+        },
+        {
+          transform: "rotate(0deg) scale(1)",
+        },
+      ],
+      {
+        duration: 750,
+        iterations: 1,
+      }
+    );
   }
 
-
   renderProductDetails() {
+    console.log(this.product);
     return `<section class="product-detail"> <h3>${this.product.Brand.Name}</h3>
     <h2 class="divider">${this.product.NameWithoutBrand}</h2>
     <img
       class="divider"
-      src="${this.product.Images.PrimaryExtraLarge}"
+      src="${
+        this.destination == "main"
+          ? this.product.Images.PrimaryExtraLarge
+          : this.product.Images.PrimaryLarge
+      }"
       alt="${this.product.NameWithoutBrand}"
     />
     <p class="product-card__price">$${this.product.FinalPrice}</p>
