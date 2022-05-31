@@ -1,7 +1,6 @@
 import { renderListWithTemplate } from "./utils";
-// import generateModal from "./modal";
-import ProductDetail from "./productDetails";
 import ProductData from "./productData.js";
+import generateModal from "./modal";
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {
@@ -31,19 +30,12 @@ export default class ProductList {
     template
       .querySelector(".modalOpenBtn")
       .addEventListener("click", (event) => {
-        // generateModal(product.Id, ".modal");
         const dataSource = new ProductData();
-        const productDetail = new ProductDetail(
-          product.Id,
-          dataSource,
-          "#modal"
-        );
-        productDetail.init();
-        event.preventDefault();
+        generateModal(event, product.Id, dataSource);
       });
-    // template.querySelector(".modalOpenBtn").removeEventListener("mousedown", handleMouseDown, false);
     return template;
   }
+
   renderList(list) {
     // insert the actual details of the current product into the template
     this.listElement.innerHTML = "";
