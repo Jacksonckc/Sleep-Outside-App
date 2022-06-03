@@ -38,7 +38,6 @@ img {
   color: #303030;
 }
 
-
 .imageUrlParent {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
@@ -197,10 +196,19 @@ button:active {
   border: 1px solid var(--light-grey);
   max-width: 250px;
 }
+
+.product-card a {
+  /* flex is to align the preview button */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 .product-card h2,
 .product-card h3,
 .product-card p {
-  margin: 0.5em 0;
+  margin: 0.3em 0;
 }
 
 .card__brand {
@@ -279,4 +287,40 @@ button:active {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+}
+
+#modal section {
+  background-color: white;
+  border: 2px solid #f0a868;
+  border-radius: 20px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -45%);
+}
+
+#modal section img {
+  max-height: 23vh;
+  width: auto;
+  margin: auto;
+  display: block;
+}
+
+.modalOpenBtn {
+  margin: 0;
+}
+
+#modalCloseBtn {
+  display: none;
+  position: fixed;
+  right: 100px;
+  top: 100px;
+  line-height: 40px;
+  text-align: center;
+  font-size: large;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #a4b8c4;
+  cursor: pointer;
 }

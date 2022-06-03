@@ -1,4 +1,6 @@
 import { renderListWithTemplate } from "./utils";
+import ProductData from "./productData.js";
+import generateModal from "./modal";
 
 export default class ProductList {
   constructor(category, dataSource, listElement) {
@@ -25,8 +27,15 @@ export default class ProductList {
       product.NameWithoutBrand;
     template.querySelector(".product-card__price").textContent +=
       product.FinalPrice;
+    template
+      .querySelector(".modalOpenBtn")
+      .addEventListener("click", (event) => {
+        const dataSource = new ProductData();
+        generateModal(event, product.Id, dataSource);
+      });
     return template;
   }
+
   renderList(list) {
     // insert the actual details of the current product into the template
     this.listElement.innerHTML = "";

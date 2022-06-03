@@ -37,7 +37,7 @@ function renderCartItem(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${item.Images.PrimaryExtraLarge}"
       alt="${item.Name}"
     />
   </a> 

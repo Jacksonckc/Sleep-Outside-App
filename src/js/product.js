@@ -5,7 +5,7 @@ import { getParams, loadHeaderFooter } from "./utils.js";
 import addSuperscript from "./cartIconSuperscript.js";
 
 const productId = getParams("product");
-const dataSource = new ProductData("tents");
+const dataSource = new ProductData();
 
 const product = new ProductDetails(productId, dataSource);
 product.init();
