@@ -1,4 +1,4 @@
-import ProductData from "./productData.js";
+import ExternalServices from "./ExternalServices.js";
 import ProductList from "./productList.js";
 import { loadHeaderFooter, getParams } from "./utils.js";
 import CartIconSuperscript from "./cartIconSuperscript";
@@ -9,8 +9,8 @@ loadHeaderFooter();
 
 const category = getParams('category');
 
-// first create an instance of our ProductData class.
-const dataSource = new ProductData();
+// first create an instance of our ExternalServices class.
+const dataSource = new ExternalServices();
 // then get the element we want the product list to render in
 const listElement = document.querySelector(".product-list");
 // console.log(listElement);

@@ -1,5 +1,5 @@
 import { renderListWithTemplate } from "./utils";
-import ProductData from "./productData.js";
+import ExternalServices from "./ExternalServices.js";
 import generateModal from "./modal";
 
 export default class ProductList {
@@ -30,7 +30,7 @@ export default class ProductList {
     template
       .querySelector(".modalOpenBtn")
       .addEventListener("click", (event) => {
-        const dataSource = new ProductData();
+        const dataSource = new ExternalServices();
         generateModal(event, product.Id, dataSource);
       });
     return template;
