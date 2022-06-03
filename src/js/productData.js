@@ -1,4 +1,4 @@
-const baseURL = 'http://157.201.228.93:2992/';
+const baseURL = 'http://157.201.228.93:2992/checkout';
 
 function convertToJson(res) {
   if (res.ok) {
