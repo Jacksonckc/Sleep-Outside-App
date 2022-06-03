@@ -1,11 +1,11 @@
-import ProductData from "./productData.js";
+import ExternalServices from "./ExternalServices.js";
 import ProductDetails from "./productDetails.js";
 import { getParams, loadHeaderFooter } from "./utils.js";
 
 import addSuperscript from "./cartIconSuperscript.js";
 
 const productId = getParams("product");
-const dataSource = new ProductData();
+const dataSource = new ExternalServices();
 
 const product = new ProductDetails(productId, dataSource);
 product.init();

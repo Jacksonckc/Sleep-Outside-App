@@ -1,4 +1,4 @@
-const baseURL = 'http://157.201.228.93:2992/checkout';
+const baseURL = 'http://157.201.228.93:2992/';
 
 function convertToJson(res) {
   if (res.ok) {
@@ -8,7 +8,7 @@ function convertToJson(res) {
   }
 }
 
-export default class ProductData {
+export default class ExternalServices {
   constructor() {
     this.products = [];
   }
@@ -22,5 +22,16 @@ export default class ProductData {
   async findProductById(id) {
     return await fetch(baseURL + `product/${id}`).then(convertToJson)
       .then((data) => data.Result);
+  }
+
+  async checkout(payload) {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    };
+    return await fetch(baseURL + 'checkout/', options).then(convertToJson);
   }
 }
