@@ -324,3 +324,11 @@ footer {
   background-color: #a4b8c4;
   cursor: pointer;
 }
+form[name="checkout"] {
+  max-width: 600px;
+  margin: auto;
+}
+form[name="checkout"] > * > * {
+  display: flex;
+  flex-direction: column;
+}
