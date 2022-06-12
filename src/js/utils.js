@@ -72,3 +72,8 @@ export async function loadHeaderFooter() {
   renderWithTemplate(header, headerElement);
   renderWithTemplate(footer, footerElement);
 }
+
+export async function loadCallToActionModal(modalElement) {
+  const modal = await loadTemplate("../partials/callToActionModal.html");
+  renderWithTemplate(modal, modalElement);
+}
