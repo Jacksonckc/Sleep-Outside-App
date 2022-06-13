@@ -1,4 +1,4 @@
-import ProductDetail from "./productDetails";
+import ProductDetail from "./productDetails.js";
 
 export default function generateModal(event, id, dataSource) {
   const productDetail = new ProductDetail(id, dataSource, "#modal");
