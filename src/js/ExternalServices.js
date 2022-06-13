@@ -1,10 +1,11 @@
 const baseURL = "http://157.201.228.93:2992/";
 
-function convertToJson(res) {
-  if (res.ok) {
-    return res.json();
+async function convertToJson(res) {
+  const response = res.json();
+  if (response) {
+    return response;
   } else {
-    throw new Error("Bad Response");
+    throw { name: 'servicesError', message: response};
   }
 }
 

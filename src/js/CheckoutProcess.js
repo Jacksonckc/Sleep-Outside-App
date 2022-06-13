@@ -1,5 +1,11 @@
-import { getLocalStorage } from "./utils.js";
 import ExternalServices from "./ExternalServices.js";
+
+import {
+  getLocalStorage,
+  setLocalStorage,
+  alertMessage,
+  removeAllAlerts,
+} from "./utils.js";
 
 const services = new ExternalServices();
 function formDataToJSON(formElement) {
@@ -14,15 +20,12 @@ function formDataToJSON(formElement) {
 }
 
 function packageItems(items) {
-  const simplifiedItems = items.map((item) =>
-    // console.log(item);
-    ({
-      id: item.Id,
-      price: item.FinalPrice,
-      name: item.Name,
-      quantity: 1,
-    })
-  );
+  const simplifiedItems = items.map((item) => ({
+    id: item.Id,
+    price: item.FinalPrice,
+    name: item.Name,
+    quantity: 1,
+  }));
   return simplifiedItems;
 }
 
@@ -84,10 +87,19 @@ export default class CheckoutProcess {
     json.shipping = this.shipping;
     json.items = packageItems(this.list);
     console.log(json);
+
     try {
       const res = await services.checkout(json);
       console.log(res);
+      setLocalStorage("cart", []);
+      location.assign("/checkout/checkedout.html");
     } catch (err) {
+      // get rid of any preexisting alerts.
+      removeAllAlerts();
+      for (let message in err.message) {
+        alertMessage(err.message[message]);
+      }
+
       console.log(err);
     }
   }
