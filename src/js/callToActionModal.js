@@ -7,12 +7,16 @@ export default class CallToActionModal {
   init() {
     this.loadModalTemplate();
   }
-  loadModalTemplate() {
-    loadCallToActionModal(this.parent);
+  async loadModalTemplate() {
+    await loadCallToActionModal(this.parent);
     this.modifiyModal();
   }
   modifiyModal() {
-    // console.log(document.body.firstElementChild);
-    document.getElementById("modalContainer").innerHTML = "hi";
+    const content = document.getElementById("CTAContent");
+    content.innerHTML = "Buy something plz!";
+    const button = document.getElementById("CTAClose");
+    button.addEventListener("click", () => {
+      this.parent.style.display = "none";
+    });
   }
 }

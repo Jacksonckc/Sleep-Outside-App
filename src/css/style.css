@@ -332,3 +332,20 @@ form[name="checkout"] > * > * {
   display: flex;
   flex-direction: column;
 }
+#CTAContainer {
+  position: fixed;
+  transform: translateX(-7.5px);
+  top: 40vh;
+  z-index: 2;
+  background-color: #f0a868;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+#CTAContent {
+  padding: 0.5em 2em;
+  font-size: var(--large-font);
+}
+#CTAClose {
+  float: right;
+}
