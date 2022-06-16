@@ -334,7 +334,7 @@ form[name="checkout"] > * > * {
 }
 #CTAContainer {
   position: fixed;
-  transform: translateX(-7.5px);
+  left: 0;
   top: 40vh;
   z-index: 2;
   background-color: #f0a868;
