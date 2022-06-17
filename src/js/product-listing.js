@@ -7,7 +7,7 @@ const superScript = new CartIconSuperscript();
 superScript.addSuperscript();
 loadHeaderFooter();
 
-const category = getParams('category');
+const category = getParams("category");
 
 // first create an instance of our ExternalServices class.
 const dataSource = new ExternalServices();
